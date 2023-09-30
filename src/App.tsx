@@ -1,9 +1,14 @@
+import CoinList from "./components/CoinList";
+import Hero from "./components/Hero"
+import Welcome from "./components/Welcome";
 
-const App = () => {
+function App() {
   return (
-    <div>
-      sadsadsa
-    </div>
+    <main>
+      <Hero />
+      <Welcome />
+      <CoinList />
+    </main>
   );
 };
 

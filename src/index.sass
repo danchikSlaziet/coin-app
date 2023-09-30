@@ -1,0 +1,171 @@
+@import './vendor/fonts/fonts.sass'
+
+/* ==================== variables =================== */
+
+$base-color: #6FFFE9
+$second-color: #FFF
+$manrope-font: 'Manrope'
+$syne-font: 'Syne'
+$tablet-width: '1199.98px'
+$mobile-width: '767.98px'
+
+.max-width-wrapper
+  max-width: 1280px
+  margin: 0 auto
+
+.page 
+  font-family: $syne-font, $manrope-font, sans-serif
+  font-weight: 700
+  color: $base-color
+  margin: 0
+  padding: 0
+
+
+.hero 
+  background-color: black
+  background-image: url(./images/hero-bg.png)
+  height: 100vh
+  background-size: contain
+  background-repeat: no-repeat
+  background-position: center center
+
+.hero__content
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  height: 50%
+  transform: translateY(50%)
+
+.hero__icon
+  color: white
+  margin-bottom: 50px
+
+.hero__title
+  font-size: 138px
+  line-height: 1.2
+  text-transform: uppercase
+  margin: 0 0 50px 0
+  padding: 0 10px
+  @media screen and (max-width: $tablet-width)
+    font-size: 101px
+  @media screen and (max-width: $mobile-width)
+    font-size: 48px
+  @media screen and (max-width: 400px)
+    font-size: 40px
+
+.nav__list
+  font-family: $manrope-font
+  padding: 0
+  margin: 0
+  list-style: none
+  display: flex
+  gap: 20px
+  font-size: 16px
+  line-height: 1.2
+  @media screen and (max-width: $mobile-width)
+    flex-direction: column
+    align-items: center
+
+.nav__item
+  cursor: pointer
+  transition: opacity .24s ease-in-out
+  &:hover
+    opacity: .5
+
+.welcome 
+  background-color: #6FFFE9
+
+.welcome__content
+  padding: 100px
+  display: flex
+  justify-content: space-between
+  align-items: flex-start
+  box-sizing: border-box
+  gap: 40px
+  width: 100%
+  @media screen and (max-width: $tablet-width) 
+    flex-direction: column
+    gap: 20px
+    padding: 80px 40px
+  @media screen and (max-width: $mobile-width) 
+    padding: 60px 20px
+
+.welcome__title
+  font-size: 48px
+  line-height: 1.2
+  color: black 
+  margin: 0
+  @media screen and (max-width: $tablet-width) 
+    font-size: 32px
+
+.welcome__text 
+  font-family: $manrope-font
+  font-weight: 500
+  font-size: 20px
+  line-height: 1.5
+  color: #1C2541
+  margin: 0
+  max-width: 50%
+  @media screen and (max-width: $tablet-width) 
+    max-width: 100%
+
+.coins
+  background-color: #3A506B
+  font-family: $manrope-font
+  color: $second-color
+  padding: 100px
+  @media screen and (max-width: $tablet-width)
+    padding: 80px 40px
+  @media screen and (max-width: $mobile-width)
+    padding: 60px 20px
+
+.coin 
+  display: flex
+  align-items: center
+  padding: 10px 40px 10px 10px
+  gap: 40px
+  background-color: #435C7C
+  border-radius: 100px
+  transition: background-color .24s ease-in, color .24s ease-in
+  &:not(:last-child)
+    margin-bottom: 20px
+  &:hover
+    background-color: #6FFFE9
+    cursor: pointer
+    color: #435C7C
+    .coin__angel
+      fill: #435C7C
+
+.coin__image 
+  width: 100px
+  aspect-ratio: 1 / 1
+  border-radius: 50%
+  object-fit: cover
+  object-position: center center
+
+.coin__text 
+  display: flex
+  flex-direction: column
+  width: 20%
+  &_rank
+    align-items: center
+    width: 20%
+
+.coin__title 
+  font-size: 20px
+  line-height: 1.5
+  margin: 0
+
+.coin__subtitle 
+  font-weight: 500
+  font-size: 14px
+  line-height: 1.5
+  margin: 0
+
+
+.coin__angel 
+  flex-shrink: 0
+  margin-left: auto
+  transition: fill .24s ease-in
+
