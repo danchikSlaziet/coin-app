@@ -23,9 +23,23 @@ export enum CoinActionTypes {
   FETCH_COINS = 'FETCH_COINS',
   FETCH_COINS_SUCCESS = 'FETCH_COINS_SUCCESS',
   FETCH_COINS_ERROR = 'FETCH_COINS_ERROR',
+  FETCH_COIN = 'FETCH_COIN',
+  FETCH_COIN_SUCCESS = 'FETCH_COIN_SUCCESS',
+  FETCH_COIN_ERROR = 'FETCH_COIN_ERROR',
   SET_COINS_LIMIT = 'SET_COINS_LIMIT',
 }
 
+interface FetchOneCoin {
+  type: CoinActionTypes.FETCH_COIN,
+}
+interface FetchOneCoinSuccess {
+  type: CoinActionTypes.FETCH_COIN_SUCCESS,
+  payload: ICoin
+}
+interface FetchOneCoinError {
+  type: CoinActionTypes.FETCH_COIN_ERROR,
+  payload: string
+}
 interface FetchCoinAction {
   type: CoinActionTypes.FETCH_COINS
 }
@@ -42,4 +56,4 @@ interface SetCoinPage {
   payload: number;
 }
 
-export type CoinAction = FetchCoinAction | FetchCoinErrorAction | FetchCoinSuccessAction | SetCoinPage;
+export type CoinAction = FetchOneCoin | FetchOneCoinSuccess | FetchOneCoinError | FetchCoinAction | FetchCoinErrorAction | FetchCoinSuccessAction | SetCoinPage;

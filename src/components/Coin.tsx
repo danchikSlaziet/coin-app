@@ -1,7 +1,6 @@
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import examplePath from '../images/hero-bg.png';
 import {  ICoin } from '../types/coin';
-import CoinInfo from './CoinInfo';
 
 interface CoinProps {
   children?: React.ReactNode
@@ -13,7 +12,7 @@ const Coin: React.FC<CoinProps> = ({coin}) => {
   const coinHandler = (coinID: string) => {
     navigate(`/${coinID}`);
   }
-
+  let percentClass = Number(coin.changePercent24Hr) > 0 ? 'coin__subtitle' : 'coin__subtitle coin__subtitle_col_red';
   return (
     <>
       <div className='coin' onClick={() => coinHandler(coin.id)}>
@@ -25,9 +24,9 @@ const Coin: React.FC<CoinProps> = ({coin}) => {
           </p>
         </div>
         <div className='coin__text coin__text_rank'>
-          <h3 className="coin__title">rank</h3>
-          <p className="coin__subtitle">
-            {coin.rank}
+          <h3 className="coin__title">24h change</h3>
+          <p className={percentClass}>
+            {Math.round(Number(coin.changePercent24Hr)*100)/100} %
           </p>
         </div>
         <svg className="coin__angel" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="white" fillRule="evenodd" clipRule="evenodd">

@@ -20,6 +20,62 @@ $mobile-width: '767.98px'
   margin: 0
   padding: 0
 
+// =========== PRELOADER =============
+
+.preloader-5 
+    display: none
+    position: relative
+    width: 150px
+    z-index: 10
+    height: 150px
+    margin: 30px auto
+    border-radius: 50%
+    border: 3px solid transparent
+    border-top-color: #337AB7
+    animation: preloader-5-spin 2s linear infinite
+    &_active
+      display: block
+    &_position_absolute
+      position: absolute
+      top: 20px
+      left: 0
+      right: 0
+    @media screen and (max-width: 900px)
+      top: 60px
+
+.preloader-5:before 
+    content: ""
+    position: absolute
+    top: 5px
+    left: 5px
+    right: 5px
+    bottom: 5px
+    border-radius: 50%
+    border: 3px solid transparent
+    border-top-color: #BFE2FF
+    animation: preloader-5-spin 3s linear infinite
+
+.preloader-5:after 
+    content: ""
+    position: absolute
+    top: 15px
+    left: 15px
+    right: 15px
+    bottom: 15px
+    border-radius: 50%
+    border: 3px solid transparent
+    border-top-color: #337AB7
+    animation: preloader-5-spin 1.5s linear infinite
+
+@keyframes preloader-5-spin 
+    0%   
+        transform: rotate(0deg)
+    
+    100% 
+        transform: rotate(360deg)
+    
+
+
 
 .hero 
   background-color: black
@@ -52,7 +108,7 @@ $mobile-width: '767.98px'
   @media screen and (max-width: $mobile-width)
     font-size: 48px
   @media screen and (max-width: 400px)
-    font-size: 40px
+    font-size: 35px
 
 .nav__list
   font-family: $manrope-font
@@ -115,6 +171,7 @@ $mobile-width: '767.98px'
   font-family: $manrope-font
   color: $second-color
   padding: 100px
+  min-height: 50vh
   @media screen and (max-width: $tablet-width)
     padding: 80px 40px
   @media screen and (max-width: $mobile-width)
@@ -128,6 +185,8 @@ $mobile-width: '767.98px'
   background-color: #435C7C
   border-radius: 100px
   transition: background-color .24s ease-in, color .24s ease-in
+  @media screen and (max-width: 560px)
+      padding: 10px 20px
   &:not(:last-child)
     margin-bottom: 20px
   &:hover
@@ -136,6 +195,9 @@ $mobile-width: '767.98px'
     color: #435C7C
     .coin__angel
       fill: #435C7C
+      transform: translateX(15px)
+      @media screen and (max-width: 560px)
+      transform: translateX(7px)
 
 .coin__image 
   width: 100px
@@ -143,14 +205,23 @@ $mobile-width: '767.98px'
   border-radius: 50%
   object-fit: cover
   object-position: center center
+  @media screen and (max-width: 560px)
+      display: none
 
 .coin__text 
   display: flex
   flex-direction: column
   width: 20%
+  @media screen and (max-width: $mobile-width)
+      flex-direction: row
+      width: 100%
+      align-items: center
+      justify-content: space-between
   &_rank
-    align-items: center
+    align-items: flex-start
     width: 20%
+    @media screen and (max-width: $mobile-width)
+      display: none
 
 .coin__title 
   font-size: 20px
@@ -162,10 +233,140 @@ $mobile-width: '767.98px'
   font-size: 14px
   line-height: 1.5
   margin: 0
+  color: #0ecb81
+  @media screen and (max-width: 380px)
+    display: none
+  &_col_red
+    color: red
 
 
 .coin__angel 
   flex-shrink: 0
   margin-left: auto
-  transition: fill .24s ease-in
+  transition: fill .24s ease-in, transform .3s linear
 
+.coins__input-container 
+  text-align: center
+  font-size: 18px
+  margin-bottom: 40px
+
+.coins__input
+  padding: 5px 10px
+  margin: 0
+  border: none
+  border-bottom: 1px solid  #6FFFE9
+  background-color: transparent
+  outline: none
+  font-family: $manrope-font
+  font-size: 18px
+  color: $second-color
+  width: 30px
+
+.coins__input-error
+  margin-top: 15px
+  color: red
+  font-weight: 400
+
+.coins__button
+  font-family: $manrope-font
+  margin-left: 20px
+  font-size: 18px
+  color: $second-color
+  width: auto
+  border: none
+  outline: 1px solid #6FFFE9
+  background-color: transparent
+  border-radius: 10px
+  padding: 5px 10px
+  transition: background-color .24s linear, color .24s linear
+  @media screen and (max-width: 500px)
+    display: block
+    margin: 20px auto 0 auto
+  &:hover
+    cursor: pointer
+    background-color: #6FFFE9
+    color: #3A506B
+    
+.coin-info
+  background-color: #3A506B
+  position: relative
+
+.coin-info__wrapper 
+  display: flex
+  justify-content: space-between
+  gap: 40px
+  padding: 100px
+  @media screen and (max-width: $tablet-width)
+    padding: 80px 40px
+  @media screen and (max-width: 900px)
+    flex-direction: column
+  @media screen and (max-width: $mobile-width)
+    padding: 60px 20px
+
+.coin-info__side-info 
+  display: flex
+  flex-direction: column
+  align-items: center
+  gap: 20px
+  text-align: center
+
+.coin-info__image 
+  width: 180px
+  object-fit: cover
+  object-position: center center
+
+.coin-info__back
+  color: inherit
+  position: absolute
+  bottom: 0
+  right: 0
+  font-size: 24px
+  font-weight: 800
+  text-decoration: none
+  transition: opacity .24s linear
+  &:hover
+    opacity: .7
+  @media screen and (max-width: 900px)
+    bottom: -30px
+
+.coin-info__name 
+  font-size: 25px
+  margin: 0
+  text-transform: uppercase
+
+.coin-info__rank 
+  font-size: 17px
+  margin: 0
+
+.coin-info__main-info 
+  position: relative
+  width: 70%
+  padding: 0 0 0 30px
+  border-left: 2px solid #6FFFE9
+  @media screen and (max-width: 900px)
+    border-left: none
+    border-top: 2px solid #6FFFE9
+    padding: 30px 0 0 0
+    width: 100%
+
+.coin-info__stats 
+  padding: 30px 0 0 0
+  display: flex
+  gap: 20px
+  justify-content: space-between
+  margin: 0 0 40px 0
+  flex-wrap: wrap
+  @media screen and (max-width: $mobile-width)
+    flex-direction: column
+
+
+.coin-info__stat 
+  font-size: 17px
+  margin: 0
+  &_col_green
+    color: #0ecb81
+  &_col_red
+    color: red
+
+.coin-info__text 
+  margin: 0 0 30px 0
