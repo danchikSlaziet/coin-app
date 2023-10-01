@@ -19,10 +19,14 @@ const CoinList: React.FC = () => {
 
   useEffect(() => {
     dispatch(fetchCoins());
+    return (() => {
+      // потом через useRef сделай
+      let coinsSection: HTMLElement | null = document.querySelector('.coin-info');
+      coinsSection?.scrollIntoView({behavior: 'smooth'});
+    })
   }, [])
 
   const preloaderClass = loading ? 'preloader-5 preloader-5_active' : 'preloader-5';
-
 
   return (
     <section className='coins'>

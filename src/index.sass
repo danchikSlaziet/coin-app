@@ -370,3 +370,43 @@ $mobile-width: '767.98px'
 
 .coin-info__text 
   margin: 0 0 30px 0
+
+.faq
+  background-color: #3A506B
+  padding: 100px
+  @media screen and (max-width: $tablet-width)
+    padding: 80px 40px
+  @media screen and (max-width: $mobile-width)
+    padding: 60px 20px
+  &__title
+    font-size: 48px
+    line-height: 1.2
+    margin: 0 0 60px 0
+  &__blocks
+    display: flex
+    gap: 100px
+    @media screen and (max-width: 1000px)
+      flex-direction: column
+      gap: 50px
+  &__question
+    font-family: $manrope-font
+    font-weight: 700
+    font-size: 20px
+    line-height: 1.5
+    margin: 0 0 10px 0
+  &__text
+    font-family: $manrope-font
+    font-weight: 500
+    color: $second-color
+    margin: 0
+
+.footer
+  background-color: #3A506B
+  padding: 100px
+  @media screen and (max-width: $tablet-width)
+    padding: 80px 40px
+  @media screen and (max-width: $mobile-width)
+    padding: 60px 20px
+  &__content
+    text-align: center
+    font-size: 20px
