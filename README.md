@@ -11,7 +11,7 @@ Gh-pages link: https://danchikslaziet.github.io/coin-app/
 ##### Клонировать репозиторий:
 
 ```
-git clone git@github.com:danchikSlaziet/react-mesto-api-full-gha.git
+git clone git@github.com:danchikSlaziet/coin-app.git
 ```
 
 ##### Настройка проекта.
