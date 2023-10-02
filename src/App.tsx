@@ -13,7 +13,7 @@ function App() {
       <Hero />
       <Welcome />
       <Routes>
-        <Route path="/*" element={<CoinList />} />
+        <Route path="/" element={<CoinList />} />
         <Route path='/:id' element={<CoinInfo />}/>
       </Routes>
       <Faq />

@@ -4,7 +4,16 @@ import {useNavigate} from 'react-router-dom';
 const Hero: React.FC = () => {
   const navigate = useNavigate();
   function currenciesHandler() {
-    navigate('/#currencies');
+    navigate('/');
+    // потом через useRef сделай
+    let coinsSection: HTMLElement | null = document.querySelector('.coins');
+    coinsSection?.scrollIntoView({behavior: 'smooth'});
+  }
+
+  function faqHandler() {
+    // потом через useRef сделай
+    let faqSection: HTMLElement | null = document.querySelector('.faq');
+    faqSection?.scrollIntoView({behavior: 'smooth'});
   }
 
   return (
@@ -15,10 +24,10 @@ const Hero: React.FC = () => {
         <nav className='nav'>
           <ul className='nav__list'>
             <li onClick={currenciesHandler} className='nav__item'>
-              <a className='nav__link' href='#currencies'>Currencies</a>
+              <a className='nav__link'>Currencies</a>
             </li>
-            <li className='nav__item'>
-              <a className='nav__link' href='#faq'>FAQ</a>
+            <li onClick={faqHandler} className='nav__item'>
+              <a className='nav__link'>FAQ</a>
             </li>
           </ul>
         </nav>
