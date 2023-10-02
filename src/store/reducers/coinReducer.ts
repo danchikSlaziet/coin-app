@@ -1,10 +1,10 @@
-import { CoinAction, CoinActionTypes, CoinState, ICoin } from "../../types/coin"
+import { CoinAction, CoinActionTypes, CoinState } from "../../types/coin"
 
 const initialState: CoinState = {
   coins: [],
   loading: false,
   error: null,
-  limit: 10
+  page: 1
 }
 
 export const coinReducer = (state = initialState, action: CoinAction): CoinState => {
@@ -16,7 +16,7 @@ export const coinReducer = (state = initialState, action: CoinAction): CoinState
     case CoinActionTypes.FETCH_COINS_ERROR:
       return {...state, loading: false, error: action.payload, coins: [] }
     case CoinActionTypes.SET_COINS_LIMIT:
-      return {...state, limit: action.payload}
+      return {...state, page: action.payload}
     case CoinActionTypes.FETCH_COIN:
       return {loading: true, error: null}
       case CoinActionTypes.FETCH_COIN_SUCCESS:

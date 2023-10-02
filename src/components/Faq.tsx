@@ -2,7 +2,7 @@
 
 const Faq = () => {
   return (
-    <section className="faq">
+    <section id='faq' className="faq">
       <div className="max-width-wrapper">
         <h4 className="faq__title">
           Curious Minds

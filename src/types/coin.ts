@@ -2,21 +2,19 @@ export interface CoinState {
   coins?: ICoin[]
   loading: boolean
   error: null | string
-  limit?: number
+  page?: number
 }
 
 export interface ICoin {
   id: string,
-  rank: string
-  symbol: string
   name: string
-  supply: string
-  maxSupply: string
-  marketCapUsd: string
-  volumeUsd24Hr: string
-  priceUsd: string
-  changePercent24Hr: string
-  vwap24Hr: string
+  symbol: string
+  image: any
+  current_price: string
+  market_cap_rank: string
+  price_change_percentage_24h: string
+  description?: any
+  market_data?: any
 }
 
 export enum CoinActionTypes {

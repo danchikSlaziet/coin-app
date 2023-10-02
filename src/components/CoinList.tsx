@@ -7,18 +7,21 @@ import { useDispatch } from 'react-redux';
 const CoinList: React.FC = () => {
   const { error, loading, coins } = useTypedSelector((state) => state.coinReducer);
   const dispatch = useDispatch();
-  const [value, setValue] = useState('');
+  const [page, setPage] = useState(1);
 
-  const inputHandler = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(evt.target.value);
-  }
 
-  const buttonHandler = () => {
+  const buttonHandler = (value: number) => {
     dispatch(fetchCoins(Number(value)));
   }
 
   useEffect(() => {
-    dispatch(fetchCoins());
+    if (localStorage.getItem('page')) {
+      dispatch(fetchCoins(Number(localStorage.getItem('page'))))
+      setPage(Number(localStorage.getItem('page')))
+    }
+    else {
+      dispatch(fetchCoins());
+    }
     return (() => {
       // потом через useRef сделай
       let coinsSection: HTMLElement | null = document.querySelector('.coin-info');
@@ -26,16 +29,33 @@ const CoinList: React.FC = () => {
     })
   }, [])
 
+  const buttonsArray: any[] = []
+
+  for (let i = 1; i <= 5; i++) {
+    buttonsArray.push(
+      <button
+        key={i}
+        onClick={() => {
+          buttonHandler(i);
+          setPage(i);
+          localStorage.setItem('page', `${i}`)
+        }}
+        className={i === page ? "coins__page-button coins__page-button_active" : "coins__page-button"}
+      >
+        {i}
+      </button>
+    );
+  }
+
   const preloaderClass = loading ? 'preloader-5 preloader-5_active' : 'preloader-5';
 
   return (
-    <section className='coins'>
+    <section id='currencies' className='coins'>
       <div className='max-width-wrapper'>
-        <div className='coins__input-container'>
-          Show first top <input className='coins__input' value={value} onChange={(evt) => inputHandler(evt)} type="text" /> ranks
-          <button className='coins__button' onClick={buttonHandler} type='button'>confirm</button>
-          <div className='coins__input-error'>{error}</div>
+        <div className='coins__pages-container'>
+          {buttonsArray}
         </div>
+        <div className='coins__page-error'>{error}</div>
         <div className={preloaderClass}></div>
         {coins?.map((coin) => {
           return <Coin key={coin.id} coin={coin} />;
