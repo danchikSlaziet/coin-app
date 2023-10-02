@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/coin-app/static/css/main.255d77ed.css",
-    "main.js": "/coin-app/static/js/main.720d3e81.js",
+    "main.js": "/coin-app/static/js/main.66052bcd.js",
     "static/media/hero-bg.png": "/coin-app/static/media/hero-bg.9557b1680fc9fce9df97.png",
     "static/media/Syne-Bold.woff": "/coin-app/static/media/Syne-Bold.3c1e8c0113b91f3a5b2e.woff",
     "static/media/Manrope-Bold.woff": "/coin-app/static/media/Manrope-Bold.b6c4aa0b0b711186d005.woff",
@@ -11,10 +11,10 @@
     "static/media/Manrope-Medium.woff2": "/coin-app/static/media/Manrope-Medium.9cccfee0f8d3153ae547.woff2",
     "index.html": "/coin-app/index.html",
     "main.255d77ed.css.map": "/coin-app/static/css/main.255d77ed.css.map",
-    "main.720d3e81.js.map": "/coin-app/static/js/main.720d3e81.js.map"
+    "main.66052bcd.js.map": "/coin-app/static/js/main.66052bcd.js.map"
   },
   "entrypoints": [
     "static/css/main.255d77ed.css",
-    "static/js/main.720d3e81.js"
+    "static/js/main.66052bcd.js"
   ]
 }
