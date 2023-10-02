@@ -16,8 +16,6 @@ git clone git@github.com:danchikSlaziet/react-mesto-api-full-gha.git
 
 ##### Настройка проекта.
 
-##### Настройка frontend-части проекта.
-
 установить зависимости
 
 ```
